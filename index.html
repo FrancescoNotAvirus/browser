@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>Search</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'media'
+    }
+  </script>
+</head>
+
+<body class="flex min-h-screen items-center justify-center px-5 py-2 lg:p-0 dark:text-white dark:bg-zinc-800">
+
+  <form
+    class="w-full max-w-xl mx-auto"
+    action="https://www.google.com/search"
+    method="get"
+  >
+
+    <input type="hidden" name="udm" value="14">
+
+    <div class="relative w-full">
+
+      <input
+        id="default-search"
+        type="search"
+        name="q"
+        required
+        placeholder="Search..."
+        class="block w-full p-4 ps-10 text-sm lg:text-lg text-gray-900 dark:text-white border border-gray-300 rounded-full dark:bg-zinc-700 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+      />
+
+      <button
+        type="submit"
+        class="mt-4 w-full md:w-auto md:absolute md:end-2.5 md:bottom-2.5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm lg:text-lg px-4 py-2 dark:bg-blue-700"
+      >
+        Search
+      </button>
+
+    </div>
+
+  </form>
+
+  <script>
+    const input = document.getElementById("default-search");
+
+    window.onload = () => input.focus();
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        input.form.submit();
+      }
+    });
+  </script>
+
+</body>
+
+</html>
